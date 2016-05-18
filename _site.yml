@@ -2,6 +2,7 @@ name: "profvis"
 output_dir: '.'
 navbar:
   title: "Profvis"
+  type: inverse
   left:
     - text: "Introduction"
       href: index.html
