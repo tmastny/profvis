@@ -3,6 +3,8 @@ title: "Frequently asked questions"
 output:
   html_document:
     toc: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r echo = FALSE}
@@ -145,12 +147,18 @@ Once a package is loaded or installed with source refs, profvis visualizations w
 # This code block is what we actually run. It must be run manually each time
 # this is updated.
 # The next block is what we show to the readers.
-library(ggplot2)
+# This also generates the livedemo.html file.
+
+devtools::load_all("../ggplot2")
+
 p <- profvis({
-  g <- ggplot(diamonds, aes(carat, price)) + geom_point(size = 1, alpha = 0.2)
-  print(g)
+  g <- ggplot(diamonds, aes(carat, price)) + geom_point(size = 1, alpha = 0.2)			
+  print(g)			
 })
+
 saveRDS(p, "ggplot2.rds")
+p$x$message$split <- "v"
+htmlwidgets::saveWidget(p, "livedemo.html")
 ```
 
 ```{r eval=FALSE}
