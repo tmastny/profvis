@@ -1,5 +1,6 @@
 ---
 title: "RStudio IDE integration"
+output: html_document
 ---
 
 ```{r echo = FALSE}

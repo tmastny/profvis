@@ -149,7 +149,8 @@ Once a package is loaded or installed with source refs, profvis visualizations w
 # The next block is what we show to the readers.
 # This also generates the livedemo.html file.
 
-devtools::load_all("../ggplot2")
+install.packages("ggplot2", type="source", INSTALL_opts="--with-keep.source")
+library(ggplot2)
 
 p <- profvis({
   g <- ggplot(diamonds, aes(carat, price)) + geom_point(size = 1, alpha = 0.2)			
