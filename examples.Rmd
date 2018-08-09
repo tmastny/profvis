@@ -9,11 +9,12 @@ editor_options:
 
 ```{r echo = FALSE}
 library(profvis)
+library(knitr)
 
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 
-# Use vertical split by default in this Rmd document
-knit_print.htmlwidget <- function(x, ...) {
+# Make output a little less tall by default
+registerS3method("knit_print", "htmlwidget", function(x, ...) {
   # Get the chunk height
   height <- knitr::opts_current$get("height")
   if (length(height) > 0 && height != FALSE)
@@ -22,7 +23,7 @@ knit_print.htmlwidget <- function(x, ...) {
     x$height <- "450px"
 
   htmlwidgets:::knit_print.htmlwidget(x, ...)
-}
+})
 ```
 
 

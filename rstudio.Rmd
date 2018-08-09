@@ -7,18 +7,6 @@ output: html_document
 library(profvis)
 
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
-
-# Use vertical split by default in this Rmd document
-knit_print.htmlwidget <- function(x, ...) {
-  # Get the chunk height
-  height <- knitr::opts_current$get("height")
-  if (length(height) > 0 && height != FALSE)
-    x$height <- height
-  else
-    x$height <- "450px"
-
-  htmlwidgets:::knit_print.htmlwidget(x, ...)
-}
 ```
 
 
