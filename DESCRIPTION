@@ -23,6 +23,7 @@ Suggests:
     ggplot2,
     rmarkdown,
     testthat,
-    devtools
+    devtools,
+    shiny
 RoxygenNote: 6.0.1
 URL: https://rstudio.github.io/profvis/
